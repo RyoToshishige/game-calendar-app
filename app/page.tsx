@@ -99,7 +99,7 @@ export default function Home() {
       <aside className={`bg-white border-r h-full flex flex-col transition-all duration-300 ${isSidebarOpen ? 'w-64' : 'w-0 overflow-hidden'}`}>
         <div className="p-6 pt-16 font-black text-xl border-b text-indigo-600 whitespace-nowrap">EVENT MANAGER</div>
         <nav className="flex-1 overflow-y-auto p-4 space-y-1 min-w-[256px]">
-          <button onClick={() => setSelectedGame(null)} className={`w-full text-left p-3 rounded-xl flex items-center gap-2 ${!selectedGame ? 'bg-indigo-50 text-indigo-700 font-bold' : 'hover:bg-slate-50 text-slate-50'}`}>🏠 全体</button>
+          <button onClick={() => setSelectedGame(null)} className={`w-full text-left p-3 rounded-xl flex items-center gap-2 ${!selectedGame ? 'bg-indigo-50 text-indigo-700 font-bold' : 'hover:bg-slate-50'}`}>🏠 全体</button>
           {games.map(g => (
             <button key={g.id} onClick={() => setSelectedGame(g.name)} className={`w-full text-left p-3 rounded-xl truncate ${selectedGame === g.name ? 'bg-indigo-600 text-white font-bold' : 'hover:bg-slate-50'}`}>{g.name}</button>
           ))}
@@ -180,15 +180,15 @@ export default function Home() {
                   <div className="p-5 bg-slate-50 rounded-[24px]">
                     <p className="text-[10px] font-black text-slate-400 mb-3 uppercase">期間指定</p>
                     <div className="flex items-center gap-1 font-black">
-                      <input type="number" className="w-10 bg-transparent text-indigo-600" value={daysLater} onChange={e => {setDaysLater(e.target.value); setFixedEndDate('');}} />
+                      <input type="number" className="w-10 bg-transparent text-indigo-600 outline-none" value={daysLater} onChange={e => {setDaysLater(e.target.value); setFixedEndDate('');}} />
                       <span>日</span>
-                      <input type="number" className="w-10 bg-transparent text-indigo-600" value={hoursLater} onChange={e => {setHoursLater(e.target.value); setFixedEndDate('');}} />
+                      <input type="number" className="w-10 bg-transparent text-indigo-600 outline-none" value={hoursLater} onChange={e => {setHoursLater(e.target.value); setFixedEndDate('');}} />
                       <span>h</span>
                     </div>
                   </div>
                   <div className="p-5 bg-slate-50 rounded-[24px]">
                     <p className="text-[10px] font-black text-slate-400 mb-3 uppercase">日付指定</p>
-                    <input type="date" className="bg-transparent text-xs font-bold w-full text-indigo-600" value={fixedEndDate} onChange={e => setFixedEndDate(e.target.value)} />
+                    <input type="date" className="bg-transparent text-xs font-bold w-full text-indigo-600 outline-none" value={fixedEndDate} onChange={e => setFixedEndDate(e.target.value)} />
                   </div>
                 </div>
                 <label className="flex items-center gap-4 p-5 bg-slate-50 rounded-[24px] cursor-pointer">
